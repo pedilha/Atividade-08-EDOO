@@ -1,0 +1,19 @@
+ASSUNTO: Comparativo entre Fila Circular e Fila Encadeada
+
+--- RESUMO DA COMPARACAO ---
+
+1. EFICIENCIA:
+Ambas as filas sao igualmente eficientes para adicionar e remover pacientes. A complexidade das operacoes e O(1) (tempo constante), o que e o melhor cenario possivel.
+
+2. DIFERENCA PRINCIPAL:
+A mudanca fundamental esta no gerenciamento de memoria.
+
+- Fila Circular (com Array):
+  - Usa um array de TAMANHO FIXO, definido na criacao.
+  - Vantagem: Pode ser ligeiramente mais rapida.
+  - Desvantagem: Pode desperdicar espaco ou encher completamente, impedindo novas insercoes.
+
+- Fila Encadeada (com Nos):
+  - Usa nos interligados e tem TAMANHO DINAMICO.
+  - Vantagem: Mais flexivel, usa apenas a memoria necessaria e nao tem limite de capacidade.
+  - Desvantagem: Requer um pouco mais de codigo para gerenciar os nos e as referencias.
