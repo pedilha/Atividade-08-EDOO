@@ -38,7 +38,22 @@ public class MainEncadeada {
         }
 
         filaDeEspera.exibirFila();
+        Thread.sleep(1000);
+
+        System.out.println("\n--- Medico iniciando os atendimentos ---");
+        for (int i = 0; i < 5; i++) {
+            Paciente pacienteASerAtendido = filaDeEspera.atenderProximo();
+            if (pacienteASerAtendido != null) {
+                System.out.println("Chamando " + pacienteASerAtendido.getNome() + " para a consulta...");
+                Thread.sleep(1000);
+                listaDeAtendidos.adicionar(pacienteASerAtendido);
+            }
+        }
         listaDeAtendidos.exibir();
+
+        listaDeAtendidos.exibirRelatorioDiario();
+
+        listaDeAtendidos.exportarRelatorioTxt();
 
         System.out.println("\nFIM DA SIMULACAO");
     }

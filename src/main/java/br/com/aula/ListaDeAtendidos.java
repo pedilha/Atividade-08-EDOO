@@ -52,4 +52,79 @@ public class ListaDeAtendidos {
         System.out.printf("   Média de idade dos atendidos: %.1f anos\n", mediaIdade);
         System.out.println("-----------------------------");
     }
+    public int contarTotalAtendidos() {
+        return atendidos.size();
+    }
+
+    public double calcularMediaIdade() {
+        if (atendidos.isEmpty()) {
+            return 0.0;
+        }
+        return atendidos.stream()
+                .mapToInt(Paciente::getIdade)
+                .average()
+                .orElse(0.0);
+    }
+
+    public Paciente encontrarPacienteMaisIdoso() {
+        if (atendidos.isEmpty()) {
+            return null;
+        }
+
+        Paciente maisIdoso = atendidos.get(0);
+        for (int i = 1; i < atendidos.size(); i++) {
+            if (atendidos.get(i).getIdade() > maisIdoso.getIdade()) {
+                maisIdoso = atendidos.get(i);
+            }
+        }
+        return maisIdoso;
+    }
+
+
+    public void exibirRelatorioDiario() {
+        System.out.println("\n---  Relatório Diário de Atendimentos ---");
+
+        int total = contarTotalAtendidos();
+        double media = calcularMediaIdade();
+        Paciente idoso = encontrarPacienteMaisIdoso();
+
+        System.out.println("Total de pacientes atendidos: " + total);
+        System.out.printf("Média de idade: %.1f anos\n", media);
+
+        if (idoso != null) {
+            System.out.println("Paciente mais idoso: " + idoso.getNome() + " (" + idoso.getIdade() + " anos)");
+        } else {
+            System.out.println("Paciente mais idoso: N/A (nenhum paciente atendido)");
+        }
+
+        System.out.println("-------------------------------------------");
+    }
+
+
+    public void exportarRelatorioTxt() {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("relatorio_diario.txt")) {
+
+            writer.println("--- Relatório Diário de Atendimentos ---");
+            writer.println("Data: " + java.time.LocalDate.now());
+            writer.println("-------------------------------------------");
+
+            int total = contarTotalAtendidos();
+            double media = calcularMediaIdade();
+            Paciente idoso = encontrarPacienteMaisIdoso();
+
+            writer.println("Total de pacientes atendidos: " + total);
+            writer.printf("Média de idade: %.1f anos\n", media);
+
+            if (idoso != null) {
+                writer.println("Paciente mais idoso: " + idoso.getNome() + " (" + idoso.getIdade() + " anos)");
+            } else {
+                writer.println("Paciente mais idoso: N/A (nenhum paciente atendido)");
+            }
+
+            System.out.println("\n Relatório exportado com sucesso para 'relatorio_diario.txt'");
+
+        } catch (java.io.IOException e) {
+            System.err.println(" Erro ao exportar o relatório: " + e.getMessage());
+        }
+    }
 }

@@ -1,0 +1,6 @@
+--- Relatório Diário de Atendimentos ---
+Data: 2025-09-28
+-------------------------------------------
+Total de pacientes atendidos: 5
+Média de idade: 38,8 anos
+Paciente mais idoso: Pedro (65 anos)
