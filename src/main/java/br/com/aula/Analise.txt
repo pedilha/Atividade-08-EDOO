@@ -1,0 +1,18 @@
+Análise de Eficiência dos Modelos de Fila
+1. Fila Encadeada / LinkedList (FIFO Normal)
+
+Operação 'adicionar' (Enqueue): A eficiência é O(1) - Excelente. A inserção ocorre diretamente no final da fila, exigindo apenas a atualização de uma referência, o que é uma operação de tempo constante.
+
+Operação 'atenderProximo' (Dequeue): A eficiência é O(1) - Excelente. A remoção ocorre diretamente no início da fila, também atualizando uma única referência em tempo constante.
+
+2. Fila Circular (FIFO Normal)
+
+Operação 'adicionar' (Enqueue): A eficiência é O(1) - Excelente. A inserção envolve apenas um cálculo matemático para encontrar o próximo índice no array, o que é uma operação de tempo constante.
+
+Operação 'atenderProximo' (Dequeue): A eficiência é O(1) - Excelente. Da mesma forma, a remoção exige apenas um cálculo de índice para mover o ponteiro de início, sendo também uma operação de tempo constante.
+
+3. Fila de Prioridade
+
+Operação 'adicionar' (Enqueue): A eficiência é O(n) - Ruim. Esta é a operação mais custosa. No pior cenário, o algoritmo precisa percorrer a fila inteira para encontrar a posição correta do novo paciente e manter a ordem de prioridade. O tempo de execução cresce linearmente com o número de pacientes na fila.
+
+Operação 'atenderProximo' (Dequeue): A eficiência é O(1) - Excelente. A remoção é sempre no início, onde já se encontra o paciente de maior prioridade. Todo o trabalho complexo de ordenação é feito durante a inserção.
