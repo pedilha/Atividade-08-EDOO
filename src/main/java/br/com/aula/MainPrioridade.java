@@ -28,7 +28,7 @@ public class MainPrioridade {
             System.out.println("\n--- Atendimento " + (i + 1) + " ---");
             Paciente pacienteAtendido = filaDeEspera.atenderProximo();
             if (pacienteAtendido != null) {
-                System.out.println("🩺 Chamando " + pacienteAtendido.getNome() + " (Idade: " + pacienteAtendido.getIdade() + ", Urgente: " + pacienteAtendido.isUrgente() + ")");
+                System.out.println(" Chamando " + pacienteAtendido.getNome() + " (Idade: " + pacienteAtendido.getIdade() + ", Urgente: " + pacienteAtendido.isUrgente() + ")");
                 Thread.sleep(1500);
             }
         }

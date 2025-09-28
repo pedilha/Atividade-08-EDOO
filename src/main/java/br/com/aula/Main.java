@@ -9,11 +9,11 @@ public class Main {
 
         System.out.println("\n--- Chegada de Pacientes ---");
         Thread.sleep(1000);
-        filaDeEspera.adicionar(new Paciente("Carlos", 34));
-        filaDeEspera.adicionar(new Paciente("Maria", 28));
-        filaDeEspera.adicionar(new Paciente("João", 45));
-        filaDeEspera.adicionar(new Paciente("Ana", 22));
-        filaDeEspera.adicionar(new Paciente("Pedro", 65));
+        filaDeEspera.adicionar(new Paciente("Carlos", 34,false));
+        filaDeEspera.adicionar(new Paciente("Maria", 28,false));
+        filaDeEspera.adicionar(new Paciente("João", 45,false));
+        filaDeEspera.adicionar(new Paciente("Ana", 22,false));
+        filaDeEspera.adicionar(new Paciente("Pedro", 65,false));
 
         filaDeEspera.exibirFila();
         Thread.sleep(2000);
